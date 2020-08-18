@@ -29,8 +29,8 @@ public class CompilerToList {
     }
 
     public List<Command> compile(Reader in) throws IOException {
-            List<Command> result = new LinkedList<Command>();
-            for(int chr; (chr = in.read()) != '\n';) {
+            List<Command> result = new LinkedList<>();
+            for(int chr; ((chr = in.read()) != '\n') && chr != -1;) {
                 if (chr == '[') {
                     Command command;
                     if((command = cycleCompile(in)) == null){

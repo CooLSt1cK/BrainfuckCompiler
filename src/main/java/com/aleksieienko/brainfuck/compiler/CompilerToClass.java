@@ -67,7 +67,7 @@ public class CompilerToClass {
         try(Writer out = new BufferedWriter(new FileWriter(file))){
             header(out);
             Visitor visitor = new PrintToJavaVisitor();
-            for(int chr; (chr = in.read()) != '\n';) {
+            for(int chr; ((chr = in.read()) != '\n') && (chr != -1);) {
                 if (chr == '[') {
                     Command command;
                     if((command = cycleCompile(in)) == null){
