@@ -12,21 +12,21 @@ import java.net.URLClassLoader;
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 
-public class Demo {
+public class DemoToClass {
 
     public static void main(String[] args) {
         try(Reader in = new BufferedReader(new InputStreamReader(System.in))){
-            Compiler compiler = new Compiler();
-            if(compiler.compile(in)) {
+            CompilerToClass compilerToClass = new CompilerToClass();
+            if(compilerToClass.compile(in)) {
 
                 JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();
-                javaCompiler.run(null, null, null, compiler.getFile().getCanonicalPath());
+                javaCompiler.run(null, null, null, compilerToClass.getFile().getCanonicalPath());
 
                 URLClassLoader classLoader = new URLClassLoader(new URL[]{new File("src/main/java/").toURI().toURL()});
-                Class cls = Class.forName("com.aleksieienko.brainfuck.compiler.result." + compiler.getResultClassName(), true, classLoader);
+                Class cls = Class.forName("com.aleksieienko.brainfuck.compilerToClass.result." + compilerToClass.getResultClassName(), true, classLoader);
                 Method method = cls.getMethod("main", String[].class);
                 method.invoke(null, new Object[]{new String[]{}});
-                File file = new File("src/main/java/com/aleksieienko/brainfuck/compiler/result/" + compiler.getResultClassName() + ".class");
+                File file = new File("src/main/java/com/aleksieienko/brainfuck/compilerToClass/result/" + compilerToClass.getResultClassName() + ".class");
                 file.delete();
             } else {
                 System.err.println("Wrong input line or problem to create compiled file!");
