@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Compiler {
+public class CompilerToClass {
     private Map<Character,Command> commands;
     private String resultClassName;
     private File file;
@@ -34,13 +34,13 @@ public class Compiler {
         commands.put('.', new PrintCommand());
     }
 
-    public Compiler(String resultClassName) throws IOException {
+    public CompilerToClass(String resultClassName) throws IOException {
         this.resultClassName = resultClassName;
         file = new File( "src/main/java/com/aleksieienko/brainfuck/compiler/result/" + resultClassName + ".java");
         file.createNewFile();
     }
 
-    public Compiler() throws IOException {
+    public CompilerToClass() throws IOException {
         resultClassName = "ProgrammNumber" + ((long)new Random().nextInt() + (1L<<31));
         file = new File( "src/main/java/com/aleksieienko/brainfuck/compiler/result/" + resultClassName + ".java");
         file.createNewFile();
