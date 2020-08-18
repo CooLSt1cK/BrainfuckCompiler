@@ -8,4 +8,7 @@ public abstract class Command {
     public abstract void execute(Data data);
 
     public abstract String accept(Visitor visitor);
+
+    @Override
+    public abstract boolean equals(Object obj);
 }

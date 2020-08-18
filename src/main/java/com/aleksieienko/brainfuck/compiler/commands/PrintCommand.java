@@ -13,4 +13,9 @@ public class PrintCommand extends Command {
     public String accept(Visitor visitor) {
         return visitor.visitPrintCommand(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof PrintCommand;
+    }
 }

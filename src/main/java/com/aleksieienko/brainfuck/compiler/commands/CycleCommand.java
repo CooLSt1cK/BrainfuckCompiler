@@ -36,4 +36,14 @@ public class CycleCommand extends Command {
     public String accept(Visitor visitor) {
         return visitor.visitCycleCommand(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof CycleCommand){
+            CycleCommand anotherObject = (CycleCommand) obj;
+            return this.getCommands().equals(anotherObject.getCommands());
+        } else {
+            return false;
+        }
+    }
 }

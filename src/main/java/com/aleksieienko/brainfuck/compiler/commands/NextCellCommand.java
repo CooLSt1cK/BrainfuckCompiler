@@ -14,4 +14,9 @@ public class NextCellCommand extends Command{
     public String accept(Visitor visitor) {
         return visitor.visitNextCellCommand(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof NextCellCommand;
+    }
 }

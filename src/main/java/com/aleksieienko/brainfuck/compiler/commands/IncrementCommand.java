@@ -13,4 +13,9 @@ public class IncrementCommand extends Command {
     public String accept(Visitor visitor) {
         return visitor.visitIncrementCommand(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof IncrementCommand;
+    }
 }

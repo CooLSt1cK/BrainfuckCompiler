@@ -13,4 +13,9 @@ public class PrevCellCommand extends Command {
     public String accept(Visitor visitor) {
         return visitor.visitPrevCellCommand(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof PrevCellCommand;
+    }
 }
