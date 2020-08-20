@@ -6,12 +6,13 @@ import com.aleksieienko.brainfuck.compiler.commands.IncrementCommand;
 import com.aleksieienko.brainfuck.compiler.commands.NextCellCommand;
 import com.aleksieienko.brainfuck.compiler.commands.PrevCellCommand;
 import com.aleksieienko.brainfuck.compiler.commands.PrintCommand;
+import java.io.IOException;
 
 public interface Visitor {
-    String visitCycleCommand(CycleCommand cycleCommand);
-    String visitDecrementCommand(DecrementCommand decrementCommand);
-    String visitIncrementCommand(IncrementCommand incrementCommand);
-    String visitNextCellCommand(NextCellCommand nextCellСommand);
-    String visitPrevCellCommand(PrevCellCommand prevCellCommand);
-    String visitPrintCommand(PrintCommand printCommand);
+    Object visitCycleCommand(CycleCommand cycleCommand) throws IOException;
+    Object visitDecrementCommand(DecrementCommand decrementCommand);
+    Object visitIncrementCommand(IncrementCommand incrementCommand);
+    Object visitNextCellCommand(NextCellCommand nextCellСommand);
+    Object visitPrevCellCommand(PrevCellCommand prevCellCommand);
+    Object visitPrintCommand(PrintCommand printCommand);
 }

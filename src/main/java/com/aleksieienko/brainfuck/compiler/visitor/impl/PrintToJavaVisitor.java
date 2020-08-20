@@ -8,12 +8,13 @@ import com.aleksieienko.brainfuck.compiler.commands.NextCellCommand;
 import com.aleksieienko.brainfuck.compiler.commands.PrevCellCommand;
 import com.aleksieienko.brainfuck.compiler.commands.PrintCommand;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
+import java.io.IOException;
 import java.util.Iterator;
 
 public class PrintToJavaVisitor implements Visitor {
 
     @Override
-    public String visitCycleCommand(CycleCommand cycleCommand) {
+    public String visitCycleCommand(CycleCommand cycleCommand) throws IOException {
         StringBuilder result = new StringBuilder();
         result.append("new CycleCommand(Arrays.asList(");
         Iterator<Command> iterator = cycleCommand.getCommands().iterator();
