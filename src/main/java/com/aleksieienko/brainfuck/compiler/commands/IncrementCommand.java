@@ -10,7 +10,7 @@ public class IncrementCommand extends Command {
     }
 
     @Override
-    public String accept(Visitor visitor) {
+    public Object accept(Visitor visitor) {
         return visitor.visitIncrementCommand(this);
     }
 

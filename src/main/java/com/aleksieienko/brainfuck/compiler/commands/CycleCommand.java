@@ -2,6 +2,7 @@ package com.aleksieienko.brainfuck.compiler.commands;
 
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class CycleCommand extends Command {
     }
 
     @Override
-    public String accept(Visitor visitor) {
+    public Object accept(Visitor visitor) throws IOException {
         return visitor.visitCycleCommand(this);
     }
 

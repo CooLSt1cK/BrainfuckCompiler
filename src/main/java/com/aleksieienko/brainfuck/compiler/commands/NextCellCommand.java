@@ -11,7 +11,7 @@ public class NextCellCommand extends Command{
 
     @Override
 
-    public String accept(Visitor visitor) {
+    public Object accept(Visitor visitor) {
         return visitor.visitNextCellCommand(this);
     }
 

@@ -10,7 +10,7 @@ public class PrevCellCommand extends Command {
     }
 
     @Override
-    public String accept(Visitor visitor) {
+    public Object accept(Visitor visitor) {
         return visitor.visitPrevCellCommand(this);
     }
 
