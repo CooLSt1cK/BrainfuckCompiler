@@ -20,6 +20,7 @@ public class CompilerToList {
                 result.add((Command) Command.commandMap.get(brainfuckLexeme).accept(visitor));
             }
         }
+
         return result;
     }
 
