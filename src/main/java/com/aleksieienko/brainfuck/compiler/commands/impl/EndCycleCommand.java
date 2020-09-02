@@ -3,7 +3,6 @@ package com.aleksieienko.brainfuck.compiler.commands.impl;
 import com.aleksieienko.brainfuck.compiler.commands.Command;
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
-import java.io.IOException;
 
 public class EndCycleCommand extends Command {
     @Override
@@ -12,7 +11,7 @@ public class EndCycleCommand extends Command {
     }
 
     @Override
-    public Object accept(Visitor visitor) throws IOException {
+    public Object accept(Visitor visitor) throws Exception {
         return visitor.visitEndCycleCommand(this);
     }
 

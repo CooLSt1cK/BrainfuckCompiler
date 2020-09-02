@@ -1,6 +1,5 @@
 package com.aleksieienko.brainfuck.compiler.commands;
 
-import com.aleksieienko.brainfuck.compiler.commands.impl.CycleCommand;
 import com.aleksieienko.brainfuck.compiler.commands.impl.DecrementCommand;
 import com.aleksieienko.brainfuck.compiler.commands.impl.EndCycleCommand;
 import com.aleksieienko.brainfuck.compiler.commands.impl.IncrementCommand;
@@ -10,7 +9,6 @@ import com.aleksieienko.brainfuck.compiler.commands.impl.PrintCommand;
 import com.aleksieienko.brainfuck.compiler.commands.impl.StartCycleCommand;
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +28,7 @@ public abstract class Command {
 
     public abstract void execute(Data data);
 
-    public abstract Object accept(Visitor visitor) throws IOException;
+    public abstract Object accept(Visitor visitor) throws Exception;
 
     @Override
     public abstract boolean equals(Object obj);
