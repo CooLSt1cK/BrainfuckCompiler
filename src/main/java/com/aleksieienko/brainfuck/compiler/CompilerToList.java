@@ -3,26 +3,21 @@ package com.aleksieienko.brainfuck.compiler;
 import com.aleksieienko.brainfuck.compiler.commands.Command;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
 import com.aleksieienko.brainfuck.compiler.visitor.impl.ReadVisitor;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class CompilerToList {
 
-    public List<Command> compile(Reader in) throws IOException {
+    public List<Command> compile(String brainfuckLine) throws Exception {
+
         List<Command> result = new LinkedList<>();
-        Visitor visitor = new ReadVisitor(in);
-        for(int chr; ((chr = in.read()) != '\n') && chr != -1;) {
-            if(Command.commandMap.get((char)chr) == null) {
-                return Collections.emptyList();
+        Visitor visitor = new ReadVisitor(result);
+
+        for(char brainfuckLexeme : brainfuckLine.toCharArray()) {
+            if(Command.commandMap.get(brainfuckLexeme) == null) {
+                throw new Exception("Wrong brainfuck lexeme");
             } else {
-                Command command = (Command) Command.commandMap.get((char) chr).accept(visitor);
-                if(command == null){
-                    return Collections.emptyList();
-                }
-                result.add(command);
+                result.add((Command) Command.commandMap.get(brainfuckLexeme).accept(visitor));
             }
         }
         return result;
