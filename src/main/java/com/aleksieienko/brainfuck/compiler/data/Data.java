@@ -4,14 +4,6 @@ public class Data {
     private char[] arr = new char[30000];
     private Integer index = 0;
 
-    public char[] getArr() {
-        return arr;
-    }
-
-    public void setArr(char[] arr) {
-        this.arr = arr;
-    }
-
     public Integer getIndex() {
         return index;
     }
@@ -26,8 +18,10 @@ public class Data {
 
     public char getCurrentCell(){
         if(index >= 0 && index < 30000) {
+
             return arr[index];
         } else {
+
             return 0;
         }
     }
