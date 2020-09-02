@@ -54,13 +54,12 @@ public class ReadVisitor implements Visitor {
         CycleCommand cycleCommand = new CycleCommand();
         Command command;
 
-        while(!(command = stack.pollLast()).equals(new StartCycleCommand())) {
-
-            if(command == null) {
-                throw new Exception("Incorrect cycle");
-            }
-
+        while( (command = stack.pollLast()) != null && !command.equals(new StartCycleCommand())) {
             cycleCommand.addFirst(command);
+        }
+
+        if(command == null){
+            throw new Exception("Incorrect cycle command");
         }
 
         return cycleCommand;
