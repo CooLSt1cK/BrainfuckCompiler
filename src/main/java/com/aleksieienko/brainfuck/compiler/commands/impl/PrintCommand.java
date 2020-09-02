@@ -1,5 +1,6 @@
-package com.aleksieienko.brainfuck.compiler.commands;
+package com.aleksieienko.brainfuck.compiler.commands.impl;
 
+import com.aleksieienko.brainfuck.compiler.commands.Command;
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
 

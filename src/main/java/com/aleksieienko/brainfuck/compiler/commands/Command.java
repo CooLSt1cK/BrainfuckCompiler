@@ -1,5 +1,13 @@
 package com.aleksieienko.brainfuck.compiler.commands;
 
+import com.aleksieienko.brainfuck.compiler.commands.impl.CycleCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.DecrementCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.EndCycleCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.IncrementCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.NextCellCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.PrevCellCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.PrintCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.StartCycleCommand;
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
 import java.io.IOException;
@@ -15,7 +23,8 @@ public abstract class Command {
         commandMap.put('<', new PrevCellCommand());
         commandMap.put('-', new DecrementCommand());
         commandMap.put('+', new IncrementCommand());
-        commandMap.put('[', new CycleCommand());
+        commandMap.put('[', new StartCycleCommand());
+        commandMap.put(']', new EndCycleCommand());
         commandMap.put('.', new PrintCommand());
     }
 

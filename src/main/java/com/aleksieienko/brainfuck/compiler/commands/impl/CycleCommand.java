@@ -1,5 +1,6 @@
-package com.aleksieienko.brainfuck.compiler.commands;
+package com.aleksieienko.brainfuck.compiler.commands.impl;
 
+import com.aleksieienko.brainfuck.compiler.commands.Command;
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
 import java.io.IOException;
@@ -7,21 +8,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CycleCommand extends Command {
-    private List<Command> commands = new LinkedList<>();
-
-    public void add(Command command){
-        commands.add(command);
-    }
+    private LinkedList<Command> commands = new LinkedList<>();
 
     public CycleCommand() {
     }
 
-    public CycleCommand(List<Command> commands) {
+    public CycleCommand(LinkedList<Command> commands) {
         this.commands = commands;
     }
 
     public List<Command> getCommands() {
         return commands;
+    }
+
+    public void addLast(Command command){
+        commands.addLast(command);
+    }
+
+    public void addFirst(Command command){
+        commands.addFirst(command);
     }
 
     @Override
