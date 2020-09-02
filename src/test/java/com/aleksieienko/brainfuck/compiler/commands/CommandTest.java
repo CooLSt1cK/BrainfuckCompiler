@@ -1,7 +1,13 @@
 package com.aleksieienko.brainfuck.compiler.commands;
 
+import com.aleksieienko.brainfuck.compiler.commands.impl.CycleCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.DecrementCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.IncrementCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.NextCellCommand;
+import com.aleksieienko.brainfuck.compiler.commands.impl.PrevCellCommand;
 import com.aleksieienko.brainfuck.compiler.data.Data;
 import java.util.Arrays;
+import java.util.LinkedList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,9 +80,9 @@ public class CommandTest {
         for(int i = 0; i < 10; i++){
             command.execute(data);
         }
-        new CycleCommand(Arrays.asList( new NextCellCommand(), command,
+        new CycleCommand(new LinkedList(Arrays.asList( new NextCellCommand(), command,
                 command, command, command, command, command,
-                new PrevCellCommand(), new DecrementCommand())).execute(data);
+                new PrevCellCommand(), new DecrementCommand()))).execute(data);
         new NextCellCommand().execute(data);
         for(int i = 0; i < 5; i++){
             command.execute(data);
