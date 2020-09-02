@@ -25,7 +25,7 @@ public class CommandTest {
         new NextCellCommand().execute(data);
 
         int expected = 1;
-        int actual = data.getIndex();
+        int actual = data.getPointer();
 
         Assert.assertEquals(expected, actual);
     }
@@ -35,7 +35,7 @@ public class CommandTest {
         new PrevCellCommand().execute(data);
 
         int expected = 29999;
-        int actual = data.getIndex();
+        int actual = data.getPointer();
 
         Assert.assertEquals(expected, actual);
     }

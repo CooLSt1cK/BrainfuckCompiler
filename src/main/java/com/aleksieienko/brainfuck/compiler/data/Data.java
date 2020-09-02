@@ -1,25 +1,27 @@
 package com.aleksieienko.brainfuck.compiler.data;
 
 public class Data {
-    private char[] arr = new char[30000];
-    private Integer index = 0;
+    private char[] memory = new char[30000];
+    private Integer pointer = 0;
 
-    public Integer getIndex() {
-        return index;
+    public Integer getPointer() {
+        return pointer;
     }
 
-    public void setIndex(Integer index) {
-        if(index >= 0 && index < 30000) {
-            this.index = index;
+    public void setPointer(Integer pointer) {
+        if(pointer >= 0 && pointer < 30000) {
+
+            this.pointer = pointer;
         } else {
-            this.index = (index >= 30000)?(0):(29999);
+
+            this.pointer = (pointer >= 30000)?(0):(29999);
         }
     }
 
     public char getCurrentCell(){
-        if(index >= 0 && index < 30000) {
+        if(pointer >= 0 && pointer < 30000) {
 
-            return arr[index];
+            return memory[pointer];
         } else {
 
             return 0;
@@ -27,8 +29,9 @@ public class Data {
     }
 
     public void setCurrentCell(char x){
-        if(index >= 0 && index < 30000) {
-            arr[index] = x;
+        if(pointer >= 0 && pointer < 30000) {
+
+            memory[pointer] = x;
         }
     }
 }

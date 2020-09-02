@@ -7,7 +7,7 @@ import com.aleksieienko.brainfuck.compiler.visitor.Visitor;
 public class PrevCellCommand extends Command {
     @Override
     public void execute(Data data) {
-        data.setIndex(data.getIndex() - 1);
+        data.setPointer(data.getPointer() - 1);
     }
 
     @Override

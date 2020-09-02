@@ -14,9 +14,9 @@ public class DataTest {
 
     @Test
     public void cycledMemory() {
-        data.setIndex(data.getIndex() - 1);
-        data.setIndex(data.getIndex() + 1);
-        int actual = data.getIndex();
+        data.setPointer(data.getPointer() - 1);
+        data.setPointer(data.getPointer() + 1);
+        int actual = data.getPointer();
         int expected = 0;
         Assert.assertEquals(expected, actual);
     }
