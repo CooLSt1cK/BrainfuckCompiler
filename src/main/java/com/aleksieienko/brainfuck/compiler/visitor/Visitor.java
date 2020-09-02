@@ -16,7 +16,7 @@ public interface Visitor {
     Object visitNextCellCommand(NextCellCommand nextCellСommand);
     Object visitPrevCellCommand(PrevCellCommand prevCellCommand);
     Object visitPrintCommand(PrintCommand printCommand);
-    Object visitEndCycleCommand(EndCycleCommand endCycleCommand);
+    Object visitEndCycleCommand(EndCycleCommand endCycleCommand) throws Exception;
     Object visitStartCycleCommand(StartCycleCommand startCycleCommand);
     Object visitCycleCommand(CycleCommand cycleCommand);
 }

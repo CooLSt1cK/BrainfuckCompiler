@@ -50,12 +50,16 @@ public class ReadVisitor implements Visitor {
     }
 
     @Override
-    public Command visitEndCycleCommand(EndCycleCommand endCycleCommand) {
+    public Command visitEndCycleCommand(EndCycleCommand endCycleCommand) throws Exception {
         CycleCommand cycleCommand = new CycleCommand();
         Command command;
 
-        while(!(command = stack.pollLast()).equals(new StartCycleCommand())
-                && command != null) {
+        while(!(command = stack.pollLast()).equals(new StartCycleCommand())) {
+
+            if(command == null) {
+                throw new Exception("Incorrect cycle");
+            }
+
             cycleCommand.addFirst(command);
         }
 
