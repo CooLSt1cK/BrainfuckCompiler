@@ -15,7 +15,7 @@ public class CompilerToList {
 
         for(char brainfuckLexeme : brainfuckLine.toCharArray()) {
             if(Command.commandMap.get(brainfuckLexeme) == null) {
-                throw new Exception("Wrong brainfuck lexeme");
+                throw new Exception("Wrong brainfuck lexeme: \'" + brainfuckLexeme + "\'");
             } else {
                 result.add((Command) Command.commandMap.get(brainfuckLexeme).accept(visitor));
             }
