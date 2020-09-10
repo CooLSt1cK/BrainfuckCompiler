@@ -17,7 +17,7 @@ public class CompilerToList {
             if(Command.commandMap.get(brainfuckLexeme) == null) {
                 throw new Exception("Wrong brainfuck lexeme: \'" + brainfuckLexeme + "\'");
             } else {
-                result.add((Command) Command.commandMap.get(brainfuckLexeme).accept(visitor));
+                Command.commandMap.get(brainfuckLexeme).accept(visitor);
             }
         }
 
